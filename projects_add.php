@@ -8,24 +8,25 @@ secure();
 
 include( 'includes/header.php' );
 
-if( isset( $_POST['title'] ) )
+if( isset( $_POST['propertyName'] ) )
 {
   
-  if( $_POST['title'] and $_POST['content'] )
+  if( $_POST['propertyName'] and $_POST['content'] )
   {
     
     $query = 'INSERT INTO projects (
-        property name,
+        propertyName,
         content,
-        from date,
-        to date
         type,
+        fromDate,
+        toDate,
         photo
       ) VALUES (
-         "'.mysqli_real_escape_string( $connect, $_POST['property name'] ).'",
+         "'.mysqli_real_escape_string( $connect, $_POST['propertyName'] ).'",
          "'.mysqli_real_escape_string( $connect, $_POST['content'] ).'",
-         "'.mysqli_real_escape_string( $connect, $_POST['date'] ).'",
          "'.mysqli_real_escape_string( $connect, $_POST['type'] ).'",
+         "'.mysqli_real_escape_string( $connect, $_POST['fromDate'] ).'",
+         "'.mysqli_real_escape_string( $connect, $_POST['toDate'] ).'",
          "'.mysqli_real_escape_string( $connect, $_POST['photo'] ).'"
       )';
     mysqli_query( $connect, $query );
@@ -45,8 +46,8 @@ if( isset( $_POST['title'] ) )
 
 <form method="post">
   
-  <label for="property name">Title:</label>
-  <input type="property name" name="property name" id="property name">
+  <label for="propertyName">Proper Name:</label>
+  <input type="text" name="propertyName" id="propertyName">
     
   <br>
   
@@ -68,16 +69,16 @@ if( isset( $_POST['title'] ) )
   
   <br>
   
-  <label for="url">URL:</label>
-  <input type="text" name="url" id="url">
+  <label for="fromDate">From Date:</label>
+  <input type="date" name="date" id="fromDate">
   
   <br>
   
-  <label for="date">Date:</label>
-  <input type="date" name="date" id="date">
+  <label for="toDate">To Date:</label>
+  <input type="date" name="date" id="toDate">
   
   <br>
-  
+
   <label for="type">Type:</label>
   <?php
   
