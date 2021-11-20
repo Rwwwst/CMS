@@ -16,18 +16,19 @@ if( !isset( $_GET['id'] ) )
   
 }
 
-if( isset( $_POST['title'] ) )
+if( isset( $_POST['propertyName'] ) )
 {
   
-  if( $_POST['title'] and $_POST['content'] )
+  if( $_POST['propertyName'] and $_POST['content'] )
   {
     
     $query = 'UPDATE projects SET
-      title = "'.mysqli_real_escape_string( $connect, $_POST['title'] ).'",
+      propertyName = "'.mysqli_real_escape_string( $connect, $_POST['propertyName'] ).'",
       content = "'.mysqli_real_escape_string( $connect, $_POST['content'] ).'",
-      date = "'.mysqli_real_escape_string( $connect, $_POST['date'] ).'",
+      fromDate = "'.mysqli_real_escape_string( $connect, $_POST['fromDate'] ).'",
+      toDate = "'.mysqli_real_escape_string( $connect, $_POST['toDate'] ).'",
       type = "'.mysqli_real_escape_string( $connect, $_POST['type'] ).'",
-      url = "'.mysqli_real_escape_string( $connect, $_POST['url'] ).'"
+      photo = "'.mysqli_real_escape_string( $connect, $_POST['photo'] ).'"
       WHERE id = '.$_GET['id'].'
       LIMIT 1';
     mysqli_query( $connect, $query );
@@ -69,8 +70,8 @@ if( isset( $_GET['id'] ) )
 
 <form method="post">
   
-  <label for="title">Title:</label>
-  <input type="text" name="title" id="title" value="<?php echo htmlentities( $record['title'] ); ?>">
+  <label for="propertyName">Property Name:</label>
+  <input type="text" name="propertyName" id="propertyName" value="<?php echo htmlentities( $record['propertyName'] ); ?>">
     
   <br>
   
@@ -92,13 +93,13 @@ if( isset( $_GET['id'] ) )
   
   <br>
   
-  <label for="url">URL:</label>
-  <input type="text" name="url" id="url" value="<?php echo htmlentities( $record['url'] ); ?>">
+  <label for="fromDate">From Date:</label>
+  <input type="date" name="fromDate" id="fromDate" value="<?php echo htmlentities( $record['date'] ); ?>">
     
   <br>
-  
-  <label for="date">Date:</label>
-  <input type="date" name="date" id="date" value="<?php echo htmlentities( $record['date'] ); ?>">
+
+  <label for="toDate">To Date:</label>
+  <input type="date" name="toDate" id="toDate" value="<?php echo htmlentities( $record['date'] ); ?>">
     
   <br>
   
