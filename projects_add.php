@@ -46,7 +46,7 @@ if( isset( $_POST['propertyName'] ) )
 
 <form method="post">
   
-  <label for="propertyName">Proper Name:</label>
+  <label for="propertyName">Property Name:</label>
   <input type="text" name="propertyName" id="propertyName">
     
   <br>
