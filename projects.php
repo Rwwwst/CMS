@@ -38,9 +38,10 @@ include 'includes/wideimage/WideImage.php';
   <tr>
     <th></th>
     <th align="center">ID</th>
-    <th align="left">Title</th>
+    <th align="left">Property Name</th>
     <th align="center">Type</th>
-    <th align="center">Date</th>
+    <th align="center">From Date</th>
+    <th align="center">To Date</th>
     <th></th>
     <th></th>
     <th></th>
@@ -52,11 +53,12 @@ include 'includes/wideimage/WideImage.php';
       </td>
       <td align="center"><?php echo $record['id']; ?></td>
       <td align="left">
-        <?php echo htmlentities( $record['title'] ); ?>
+        <?php echo htmlentities( $record['propertyName'] ); ?>
         <small><?php echo $record['content']; ?></small>
       </td>
       <td align="center"><?php echo $record['type']; ?></td>
-      <td align="center" style="white-space: nowrap;"><?php echo htmlentities( $record['date'] ); ?></td>
+      <td align="center" style="white-space: nowrap;"><?php echo htmlentities( $record['fromDate'] ); ?></td>
+      <td align="center" style="white-space: nowrap;"><?php echo htmlentities( $record['toDate'] ); ?></td>
       <td align="center"><a href="projects_photo.php?id=<?php echo $record['id']; ?>">Photo</i></a></td>
       <td align="center"><a href="projects_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
       <td align="center">
